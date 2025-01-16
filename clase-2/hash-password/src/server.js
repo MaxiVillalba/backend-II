@@ -13,8 +13,8 @@ const app = express();
 const SECRET = "clavesecreta";
 
 // Mongo URL
-const mongoUser = "massevillalba"; // Usuario MongoDB
-const mongoPassword = "Cersei2024!"; // Contraseña MongoDB
+const mongoUser = ""; // Usuario MongoDB
+const mongoPassword = ""; // Contraseña MongoDB
 const mongoUrl = `mongodb+srv://${mongoUser}:${mongoPassword}@clustervillalba.cocqh.mongodb.net/backend2-clase2?retryWrites=true&w=majority`;
 
 app.use(express.json());  // Esto permite procesar las solicitudes JSON
