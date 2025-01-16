@@ -1,0 +1,25 @@
+{
+  "name": "repaso-clase-1",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "repaso clase 1",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Maximiliano Villalba",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "mongoose": "^8.9.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

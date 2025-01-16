@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COOKIE MANAGER</title>
+    <script>
+        // Función para enviar la solicitud de POST y crear la cookie
+        async function setCookie() {
+            const user = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            try {
+                const response = await fetch('/set-cookie', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ user, email }),
+                });
+                const result = await response.json();
+                console.log(result);
+                alert(result.message);
+            } catch (error) {
+                console.error('Error al crear la cookie:', error);
+                alert('Hubo un problema al crear la cookie.');
+            }
+        }
+
+        // Función para enviar una solicitud de GET y obtener la cookie
+        async function getCookie() {
+            try {
+                const response = await fetch('/get-cookie');
+                const result = await response.json();
+                console.log(result);
+
+                if (result.status === 'success') {
+                    alert(`Cookie: ${JSON.stringify(result.data)}`);
+                } else {
+                    alert(result.message);
+                }
+            } catch (error) {
+                console.error('Error al obtener la cookie:', error);
+                alert('Hubo un problema al obtener la cookie.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Cookie Manager</h1>
+    <form onsubmit="return false;">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required>
+        <br><br>
+        <button type="button" onclick="setCookie()">Submit</button>
+        <button type="button" onclick="getCookie()">Get Cookie</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,1 @@
+Proyecto base para contabilizar los inicios de sesión, guardando info en el cache y en base de datos no relacional Mongodb por periodos pre-establecidos.

@@ -1,0 +1,1 @@
+Proyecto base para registro y logueo de usuario, con base de datos no relacional, en este caso mongodb, con sistema de autenticación.

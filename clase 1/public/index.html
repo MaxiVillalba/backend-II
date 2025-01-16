@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Manager</title>
+    <style>
+        /* Estilo para los formularios */
+        form {
+            margin-bottom: 20px;
+        }
+
+        /* Estilo para los campos de formulario */
+        input {
+            margin-right: 10px;
+            padding: 5px;
+            font-size: 14px;
+        }
+
+        /* Estilo para los botones */
+        button {
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* Estilo para mostrar los formularios uno al lado del otro */
+        .inline-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Estilo para la respuesta */
+        #response {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cookie Manager</h1>
+
+    <h2>Establecer Cookie</h2>
+    <form id="setCookieForm" class="inline-form">
+        <label for="userName">Nombre:</label>
+        <input type="text" id="userName" name="userName" required>
+
+        <label for="userEmail">Correo Electrónico:</label>
+        <input type="email" id="userEmail" name="userEmail" required>
+
+        <button type="submit">Establecer Cookie</button>
+    </form>
+
+    <h2>Obtener y Eliminar Cookie</h2>
+    <div class="inline-form">
+        <form id="getCookieForm">
+            <button type="submit">Obtener Cookie</button>
+        </form>
+
+        <form id="deleteCookieForm">
+            <button type="submit">Eliminar Cookie</button>
+        </form>
+    </div>
+
+    <div id="response"></div>
+
+    <script>
+        // Función para hacer peticiones AJAX y mostrar respuestas
+        function handleFormSubmit(event, url, method, data) {
+            event.preventDefault();
+            fetch(url, {
+                method: method,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: data ? JSON.stringify(data) : null,
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('response').innerText = JSON.stringify(data);
+            })
+            .catch(error => {
+                document.getElementById('response').innerText = 'Error: ' + error;
+            });
+        }
+
+        // Establecer una cookie
+        document.getElementById('setCookieForm').addEventListener('submit', function (event) {
+            const userName = document.getElementById('userName').value;
+            const userEmail = document.getElementById('userEmail').value;
+            const data = { userName, userEmail };
+            handleFormSubmit(event, '/setCookie', 'POST', data);
+        });
+
+        // Obtener una cookie
+        document.getElementById('getCookieForm').addEventListener('submit', function (event) {
+            handleFormSubmit(event, '/getCookie', 'GET');
+        });
+
+        // Eliminar una cookie
+        document.getElementById('deleteCookieForm').addEventListener('submit', function (event) {
+            handleFormSubmit(event, '/deleteCookie', 'GET');
+        });
+    </script>
+</body>
+</html>
