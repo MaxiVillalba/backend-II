@@ -1,0 +1,16 @@
+Router de mascotas
+
+Este router está orientado para el manejo de una bbdd de mascotas, con las siguientes caracteristicas:
+
+1 - POST('/'): Se insertarán las nuevas mascotas, con formato de name y specie en string.
+
+2 - GET ('/:pet'): Trae las mascotas con el nombre indicado, utilizando una expresión regular para que puedan recibir letras e incluso espacios, sin permitir números, para el cuál se utilizo el metodo regex const regex = /^[A-Za-z\s]+$/, el cuál en este trabajo, está aplicado como constante para evitar duplicar codigo.
+
+3 - PUT ('/:pet'): Trae las mascotas y le añade el campo "adopted:true" a ducha mascota en caso de existir.
+
+4 - Se genera un router.param para acceder de manera directa a la mascota, colocándola en req.pet
+
+5 - Como dato relevante, en esté trabajo, se implemento constantes al principio de las rutas, para poder evitar repetir codigo, siendo el caso de los mensajes de error res.json y el regex. Si bien la cantidad de codigo no lo amerita, es interensante tener en cuenta las formas para poder aplicar a futuros trabajos.
+
+
+

@@ -1,0 +1,9 @@
+### POST Login
+
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "maxi@catmail.com",
+    "password": "123456"
+}

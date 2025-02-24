@@ -1,0 +1,5 @@
+Trabajo de custom router, aplicando metodos customizados de mensajes para poder optimizar y homogeinizar las formas de trabajo con las respuestas.
+
+Se suman también handlepolicies, por medio de jsonwebtoken, dividiendo los accesos por roles(user, admin, premium user)
+
+Dentro de cada solicitud de usuario se genera un token, con el cuál dependiendo de los permisos, el usuario o rol que corresponda podra validarse

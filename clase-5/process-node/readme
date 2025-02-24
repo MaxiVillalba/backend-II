@@ -1,0 +1,11 @@
+Manejo de argumentos en consola
+
+Los argumentos permiten iniciar la ejecución de un programa a partir de ciertos elementos iniciales.
+
+Con argumentos podemos: 
+Setear configuraciones de arranque
+Agregar valores predeterminados
+Resolver outputs especificos
+
+Para poder trabajar con argumentos, podemos hacerlo a partir de process.argv
+Recordando que por defecto, process.argv siempre tendrá dos elementos iniciales
