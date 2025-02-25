@@ -2,14 +2,18 @@ import morgan from 'morgan';
 import express from 'express';
 import cors from 'cors';
 
-import { CONFIG } from './config.js';
+import { CONFIG } from './config/config.js';
 import { contactRouter } from './routes/contact.routes.js';
 import { mongodbProvider } from './providers/mongodb.provider.js';
 
 const app = express();
 
 // Configurar CORS correctamente
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ 
+    origin: 'http://localhost:5173',
+    methods: ["GET"], 
+})
+);
 
 app.use(morgan('dev'));
 app.use(express.json());

@@ -5,7 +5,7 @@ function App() {
   const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/contacts")
+    fetch("http://localhost:3000/api/contacts")
       .then((res) => res.json())
       .then((data) => setContacts(data.contacts))
       .catch((error) => console.log(error));
@@ -48,7 +48,7 @@ function App() {
           console.log(contact);
           console.log(JSON.stringify(contact));
 
-          fetch("http://localhost:5000/api/contacts", {
+          fetch("http://localhost:3000/api/contacts", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
