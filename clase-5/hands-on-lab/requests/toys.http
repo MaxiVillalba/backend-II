@@ -1,0 +1,19 @@
+### GET toys
+
+GET http://localhost:5000/api/toys
+
+### GET toy
+
+GET http://localhost:5000/api/toys/4063641f-5346-4bd8-8efd-be51765ded9e
+
+### POST toys
+
+POST http://localhost:5000/api/toys
+Content-Type: application/json
+
+{
+  "name": "Buzz Lightyear",
+  "description": "Buzz Lightyear action figure",
+  "price": 30,
+  "stock": 1
+}

@@ -1,0 +1,6 @@
+Servidor por capas, utilizando de ejemplo una jugueteria, donde se puedan guardar y leer juguetes y usuarios.
+Funcionando con una capa de ruteo, otra de controlador y utilizando docker para realizar las solicitudes.
+
+
+No tiene capa de vistas, solo lo necesario para el back.
+Tener en cuenta para las solicitudes, que se se puede utilizar uuid como objectid de mongoose.
