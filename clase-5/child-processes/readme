@@ -1,0 +1,2 @@
+Ejemplo de aplicativo visto en clases, utilizando child process, para derivar un proceso de mayor peso a un
+segundo plano, evitando asi que colapse nuestro sistema y podamos seguir utilizando el resto del aplicativo.
